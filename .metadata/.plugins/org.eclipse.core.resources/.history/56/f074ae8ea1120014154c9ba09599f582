@@ -1,0 +1,6 @@
+var currentWindow = Ti.UI.currentWindow;
+
+/*var homwView = Ti.UI.createView({
+	backgroundImage: ""
+});*/
+

@@ -1,0 +1,7 @@
+var currentWindow = Ti.UI.currentWindow;
+
+var Miami = Ti.UI.createBUtton({
+	backgroundImage:"Images/Miami/Miami.png"
+});
+
+currentWindow.add(Miami);

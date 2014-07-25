@@ -1,0 +1,3 @@
+var currentWindow = Ti.UI.currentWindow;
+
+currentWindow.add();

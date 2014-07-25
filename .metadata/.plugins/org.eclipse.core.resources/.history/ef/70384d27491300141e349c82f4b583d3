@@ -1,0 +1,27 @@
+
+var currentWindow = Ti.UI.currentWindow;
+//Views
+
+var view = Titanium.UI.iOS.createCoverFlowView({
+    images:['Images/Miami/Pat.png','Images/Miami/Dwade.png','Images/Miami/Big3.png'],
+    //backgroundImage:"Images/Menu/Black.jpg",
+});
+
+//Functions//
+var miami1 = function(){
+	var loadfile = Ti.UI.createWindow({
+		title:"1988­-2003: Early years in Miami",
+		url:"Miami.js",
+		nav: navWindow
+	});
+	currentWindow.nav.openWindow(loadfile);
+};
+
+var array = view.images;
+
+for(var i = 0; j = array.length; i < 3, i++){
+	array[i].addEventListern("click",miami1);
+}
+
+//View.add(Border,Text);
+currentWindow.add(view);

@@ -1,0 +1,64 @@
+
+/*var view = Titanium.UI.iOS.createCoverFlowView({
+    images:['Images/Miami/Pat.png','Images/Miami/Dwade.png','Images/Miami/Big3.png'],
+    //backgroundImage:"Images/Menu/Black.jpg",
+});*/
+
+Ti.include("JSON.js");
+
+var currentWindow = Ti.UI.currentWindow;
+
+//Views
+var View = Ti.UI.createView({
+	backgroundImage:"Images/Menu/Black.jpg",
+	height: "121%"
+});
+
+var textView = Ti.UI.createView({
+	backgroundColor: "#white",
+	height: 65,
+	top: 0	
+});
+
+var Border = Ti.UI.createView({
+	backgroundColor: "black",
+	height: 0,
+	top: textView.height + textView.top	
+});
+
+var image = Ti.UI.createImageView({
+	image:"Images/Miami/miami-heat-logo-transparent-png.png",
+	top: "50%"
+});
+
+//Button
+
+var Button = Ti.UI.createImageView({
+	Image:"Images/Button/Background.png",
+	top:"5%",
+	right: " -80%"
+});
+
+
+//Labels
+var Text = Ti.UI.createLabel({
+	text: MiamiInfo,
+	font: {fontSize: 15, fontFamily: "Arial"},
+	color: "white",
+	top: textView.height + Border.top + 40,
+	left: 15,
+	right: 15
+});
+
+//Functions//
+var miami1 = function(){
+	var loadfile = Ti.UI.createWindow({
+		title:"1988­-2003: Early years in Miami",
+		url:"Miami.js",
+		nav: navWindow
+	});
+	currentWindow.nav.openWindow(loadfile);
+};
+
+View.add(Border,Text,image,Button);
+currentWindow.add(View);

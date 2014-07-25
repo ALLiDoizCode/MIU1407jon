@@ -1,0 +1,127 @@
+
+/*var view = Titanium.UI.iOS.createCoverFlowView({
+    images:['Images/Miami/Pat.png','Images/Miami/Dwade.png','Images/Miami/Big3.png'],
+    //backgroundImage:"Images/Menu/Black.jpg",
+});*/
+
+Ti.include("JSON.js");
+
+var currentWindow = Ti.UI.currentWindow;
+
+//var tabGroup = Ti.UI.createTabGroup();
+
+//Views
+var View = Ti.UI.createView({
+	backgroundImage:"Images/Menu/Black.jpg",
+	height: "121%"
+});
+
+var textView = Ti.UI.createView({
+	backgroundColor: "#white",
+	height: 65,
+	top: 0	
+});
+
+var Border = Ti.UI.createView({
+	backgroundColor: "black",
+	height: 0,
+	top: textView.height + textView.top	
+});
+
+var logo = Ti.UI.createImageView({
+	image:"Images/Miami/miami-heat-logo-transparent-png.png",
+	top: "50%",
+	
+});
+
+var buttonImage = Ti.UI.createImageView({
+image: "Images/Button/Background.png",
+top: 10,
+left: "62%",
+width: "60%",
+height: "50%"
+});
+
+//Tabs
+var Home = Ti.UI.createWindow({
+    title:"Home",
+    url:"app.js"
+});
+ 
+var homesTab = Ti.UI.createTab({
+    title:"Home",
+    window:Home
+});
+
+/*var celtics = Ti.UI.createWindow({
+title: "celtics",
+url: "MainWindow3.js"
+});
+
+var celticsTab = Ti.UI.createTab({
+title: "Celtics",
+window: celtics
+});
+
+var knicks = Ti.UI.createWindow({
+title: "Knicks",
+url: "MainWindow4.js"
+});
+
+var KnicksTab = Ti.UI.createTab({
+title: "Knicks",
+window: knicks
+});
+
+var bulls = Ti.UI.createWindow({
+title: "Bulls",
+url: "MainWindow5.js"
+});
+
+var bullsTab = Ti.UI.createTab({
+title: "Bulls",
+window: bulls
+});*/
+ 
+//Labels
+var Text = Ti.UI.createLabel({
+	text: MiamiInfo,
+	font: {fontSize: 15, fontFamily: "Arial"},
+	color: "white",
+	top: textView.height + Border.top,
+	left: 15,
+	right: 15,
+	zIndex: 2
+});
+
+//Button
+var button = Titanium.UI.createButton({
+   title: 'Next',
+   top: 17,
+   left: 57,
+  // width: 100,
+   //height: 50,
+   color: " red",
+   
+});
+
+//Functions//
+var miami1 = function(){
+	var loadfile = Ti.UI.createWindow({
+		title:"1988-2003: Early years in Miami",
+		url:"Miami1.js",
+		nav: currentWindow.nav
+	});
+	currentWindow.nav.openWindow(loadfile);
+};
+
+//EventListerner//
+button.addEventListener("click",miami1);
+buttonImage.add(button);
+View.add(Border,logo);
+currentWindow.add(View,Text,buttonImage);
+tabGroup.addTab(homesTab);
+//tabGroup.addTab(celticsTab);
+//tabGroup.addTab(KnicksTab);
+//tabGroup.addTab(bullsTab);
+//tabGroup.open();

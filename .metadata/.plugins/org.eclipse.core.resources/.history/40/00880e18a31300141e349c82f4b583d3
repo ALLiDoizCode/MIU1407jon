@@ -1,0 +1,89 @@
+Ti.include("JSON.js");
+
+var currentWindow = Ti.UI.currentWindow;
+
+//Views
+var View = Ti.UI.createView({
+	backgroundImage:"Images/Menu/Black.jpg",
+	height: "121%"
+});
+
+var textView = Ti.UI.createView({
+	backgroundColor: "#white",
+	height: 65,
+	top: 0	
+});
+
+var Border = Ti.UI.createView({
+	backgroundColor: "black",
+	height: 0,
+	top: textView.height + textView.top	
+});
+
+var pat = Ti.UI.createImageView({
+image:"Images/Miami/Pat.png",
+zIndex: 1,
+bottom:"0%"
+});
+
+var buttonImage = Ti.UI.createImageView({
+image: "Images/Button/Background.png",
+top: 10,
+left: "62%",
+width: "60%",
+height: "50%"
+});
+
+var buttonImage2 = Ti.UI.createImageView({
+image: "Images/Button/Background.png",
+top: 10,
+right: "50%",
+width: "60%",
+height: "50%"
+});
+
+
+//Labels
+var Text = Ti.UI.createLabel({
+	text: Miami[0],
+	font: {fontSize: 15, fontFamily: "Arial"},
+	color: "white",
+	top: textView.height + Border.top + 40,
+	left: 15,
+	right: 15,
+	zIndex: 2
+});
+
+//Button
+var button = Titanium.UI.createButton({
+   title: 'Next',
+   top: 17,
+   left: 57,
+   color: " red",
+   
+});
+
+//Button
+var button2 = Titanium.UI.createButton({
+   title: 'Home',
+   top: 17,
+   right: "43%",
+   color: " red",
+   
+});
+
+//Functions//
+var loadNext = function(){
+	var loadfile = Ti.UI.createWindow({
+		title:"2003: Dwayne Wade comes to Miami",
+		url:"Heat1.js",
+		nav: currentWindow.nav
+	});
+	currentWindow.nav.openWindow(loadfile);
+};
+
+//EventListener//
+button.addEventListener("click",loadNext);
+buttonImage2.add(button2);
+buttonImage.add(button);
+currentWindow.add(View,Text,buttonImage,pat,buttonImage2);

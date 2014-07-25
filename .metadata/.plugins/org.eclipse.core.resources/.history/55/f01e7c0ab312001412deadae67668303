@@ -1,0 +1,100 @@
+var mainWindow = Ti.UI.createWindow({
+	backgroundImage:"Images/Menu/Black.jpg"
+});
+var window2 = Ti.UI.createWindow({
+	
+});
+
+//Views//
+var imageView = Ti.UI.createView({	
+});
+
+var splashView = Ti.UI.createView({
+	backgroundImage:"Images/Splash/background.jpg",
+});
+var splash = Ti.UI.createImageView({
+	image: "Images/Splash/Players.png",
+	zIndex: 1,
+	width: "30%",
+	top: "20%",
+	
+});
+
+var splash2 = Ti.UI.createImageView({
+	image: "Images/Splash/nba_logo_110421.jpg",
+	zIndex: 2,
+	top: "30%",
+	width:"100%",
+	
+});
+
+//Images
+var Miami = Ti.UI.createImageView({
+	Image:"Images/Miami/Miami.png",
+	top:"2%",
+	width: "30%",
+	left: "10%"
+});
+
+var Lakers = Ti.UI.createImageView({
+	Image:"Images/Lakers/Lakers.png",
+	top:"20%",
+	width: "30%",
+	left: "10%"
+});
+
+var Celtics = Ti.UI.createImageView({
+	Image:"Images/Boston/Celtics.png",
+	top:"40%",
+	width: "30%",
+	left: "10%"
+});
+
+var Knicks = Ti.UI.createImageView({
+	Image:"Images/Knicks/Knicks.png",
+	top:"60%",
+	width: "30%",
+	left: "10%"
+});
+
+var Bulls = Ti.UI.createImageView({
+	Image:"Images/Bulls/Chicago.png",
+	top:"79%",
+	width: "30%",
+	left: "10%"
+});
+
+
+//Functions//
+var loadWin = function(){
+	var loadfile = Ti.UI.createWindow({
+		url:"MainWindow.js",
+		backgroundColor: "blue"
+	});
+	mainWindow.add(loadfile);
+};
+
+splashView.add(splash,splash2);
+mainWindow.add(splashView,window2); 
+imageView.add(Miami,Lakers,Celtics,Knicks,Bulls);
+window2.add(imageView);
+mainWindow.open();
+var startupAnimation = Titanium.UI.createAnimation({
+    curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT,
+    opacity: 1,
+    duration: 3000,
+    delay: 1500
+});
+
+//EventListeners
+startupAnimation.addEventListener('complete', function() {
+    Ti.API.log('Completed');
+    splashView.animate({ 
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT, 
+        opacity: 0, 
+        duration: 5000
+    });
+});
+
+startupAnimation.addEventListener("complete",loadWin);
+splashView.animate(startupAnimation);

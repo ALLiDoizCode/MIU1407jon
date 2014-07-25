@@ -1,0 +1,5 @@
+var currentWindow = Ti.UI.currentWindow;
+var testView = Ti.UI.createView({
+	backgroundColor: "red"
+});
+currentWindow.add();

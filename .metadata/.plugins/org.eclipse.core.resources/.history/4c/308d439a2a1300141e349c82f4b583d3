@@ -1,0 +1,123 @@
+var mainWindow = Ti.UI.createWindow({
+});
+var window2 = Ti.UI.createWindow({
+	
+});
+
+//Views//
+
+//Layout
+var pWidth = Titanium.Platform.displayCaps.platformWidth;
+var pHeight = Titanium.Platform.displayCaps.platformHeight;
+var rowCount = 5;
+var margin = 1;
+var canvas = pWidth / rowCount;
+var size = canvas - ((rowCount + 1) * margin) / rowCount;
+
+
+//Views
+/*var imageView = Ti.UI.createScrollView({
+	backgroundImage:"Images/Menu/Black.jpg",	
+	zIndex: 1,
+	layout: "vertical",	
+	showVerticalScrollIndicator: true,
+	width: pWidth,
+	contentWidth: pWidth,
+	height:pHeight
+});*/
+
+var imageView = Ti.UI.createScrollView({
+	backgroundImage:"Images/Menu/Black.jpg",	
+	zIndex: 1
+});
+
+var splashView = Ti.UI.createView({
+	backgroundImage:"Images/Splash/background.jpg",
+	zIndex: 2
+});
+var splash = Ti.UI.createImageView({
+	image: "Images/Splash/Players.png",
+	zIndex: 1,
+	width: "100%",
+	top: "18.7%",
+	
+});
+
+var splash2 = Ti.UI.createImageView({
+	image: "Images/Splash/nba_logo_110421.jpg",
+	zIndex: 2,
+	top: "67%",
+	width:"100%",
+	
+});
+
+//Images
+var Miami = Ti.UI.createImageView({
+	Image:"Images/Miami/MiamiTitle.png",
+	//top:"5%",
+	//width: "200%",
+	//left: "-105"
+});
+
+var Lakers = Ti.UI.createImageView({
+	Image:"Images/Lakers/LakersTitle.png",
+	//top:"20%",
+	//width: "300%",
+	//left: "-105"
+});
+
+var Celtics = Ti.UI.createImageView({
+	Image:"Images/Boston/Boston.png",
+	//top:"40%",
+	//width: "400%",
+	//left: "-105"
+});
+
+var Knicks = Ti.UI.createImageView({
+	Image:"Images/Knicks/KnicksTitle.png",
+	//top:"60%",
+	//width: "500%",
+	//left: "-105"
+});
+
+var Bulls = Ti.UI.createImageView({
+	Image:"Images/Bulls/Bulls.png",
+	//top:"79%",
+	//width: "600%",
+	//left: "-105"
+});
+splashView.add(splash,splash2);
+imageView.add(Miami,Lakers,Celtics,Knicks,Bulls);
+//window2.add(imageView);
+mainWindow.add(splashView,imageView);
+mainWindow.open();
+
+
+//Functions//
+var loadWin = function(){
+	var loadfile = Ti.UI.createWindow({
+		url:"MainWindow.js",
+		backgroundColor: "blue"
+	});
+	mainWindow.add(loadfile);
+};
+
+var startupAnimation = Titanium.UI.createAnimation({
+    curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT,
+    opacity: 1,
+    duration: 3000,
+    delay: 1500
+});
+
+//EventListeners
+startupAnimation.addEventListener('complete', function() {
+    Ti.API.log('Completed');
+    splashView.animate({ 
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT, 
+        opacity: 0, 
+        duration: 4000
+    });
+});
+
+//startupAnimation.addEventListener("complete",loadWin);
+splashView.animate(startupAnimation);

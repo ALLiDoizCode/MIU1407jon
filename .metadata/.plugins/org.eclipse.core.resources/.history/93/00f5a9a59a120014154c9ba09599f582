@@ -1,0 +1,54 @@
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor:"blue"
+});
+
+//Views//
+var mainView = Ti.UI.createVIew({
+	backgroundImage:"Images/Menu/WEB_Image Savage 2 75x6 09m Matte Black Infinity V1375068494.Jpeg"
+});
+
+var splashView = Ti.UI.createView({
+	backgroundImage:"Images/Splash/background.jpg",
+});
+var splash = Ti.UI.createImageView({
+	image: "Images/Splash/Players.png",
+	zIndex: 1,
+	width: "100%",
+	top: "18.7%"
+});
+
+var splash2 = Ti.UI.createImageView({
+	image: "Images/Splash/nba_logo_110421.jpg",
+	zIndex: 2,
+	top: "67%",
+	width:"100%"
+});
+
+//Functions//
+var loadWin = function(){
+	var loadfile = Ti.UI.createWindow({
+		url:"MainWindow.js",
+		backgroundColor: "blue"
+	});
+	mainWindow.add(loadfile);
+};
+splashView.add(splash,splash2);
+mainWindow.add(splashView,mainView); 
+mainWindow.open();
+var startupAnimation = Titanium.UI.createAnimation({
+    curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT,
+    opacity: 1,
+    duration: 3000,
+    delay: 1500
+});
+
+//EventListeners
+startupAnimation.addEventListener('complete', function() {
+    Ti.API.log('Completed');
+    mainView.animate({ 
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT, 
+        opacity: 0, 
+        duration: 5000
+    });
+});
+splashView.animate(startupAnimation);

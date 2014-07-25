@@ -1,0 +1,6 @@
+var currentWindow = Ti.UI.currentWindow;
+var View = Ti.UI.createView({
+	backgroundImage:"Images/Menu/Black.jpg",
+	height: "121%"
+});
+currentWindow.add(testView);
