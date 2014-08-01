@@ -1,0 +1,13 @@
+var currentWindow = Titanium.UI.currentWindow;
+var info = Titanium.UI.createTextField({
+    color:"#336699",
+    top:60,
+    left:10,
+    width:300,
+    height:40,
+    hintText:"FaceBook Name",
+    passwordMask:true,
+    keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+    returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+});

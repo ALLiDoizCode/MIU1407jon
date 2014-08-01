@@ -1,0 +1,73 @@
+Ti.include("Json.js");
+var currentWindow = Titanium.UI.currentWindow;
+
+var view1 = Ti.UI.createScrollView({
+backgroundColor: "black",
+});
+ 
+var imgView = Ti.UI.createImageView({
+Image: "Images/smoke.jpg.jpg",
+top: "60.5%",
+right: "42%"
+});
+ 
+var scrollView = Ti.UI.createScrollView({
+    contentWidth:'auto',
+    contentHeight:'auto',
+    top:0,
+    showVerticalScrollIndicator:true,
+    showHorizontalScrollIndicator:false,
+    zIndex: 1
+});
+ 
+var username = Titanium.UI.createTextField({
+    color:"#336699",
+    top:10,
+    left:10,
+    width:300,
+    height:40,
+    hintText:"Username",
+    keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+    returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+});
+
+ 
+var password = Titanium.UI.createTextField({
+    color:"#336699",
+    top:60,
+    left:10,
+    width:300,
+    height:40,
+    hintText:"Password",
+    passwordMask:true,
+    keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+    returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+});
+
+ 
+var loginBtn = Titanium.UI.createButton({
+    title:"Login",
+    top:110,
+    width:90,
+    height:35,
+    borderRadius:1,
+    font:{fontFamily:"Arial",fontWeight:"bold",fontSize:14}
+});
+
+loginBtn.addEventListener("click",function(){
+for(i=0, j=Login.length; i<j; i++){
+if(username.value !== Login[i].user || password.value !== Login[i].pass){
+alert("Either the username or password is incorrect");
+break;
+}
+else{
+alert("Welcome " + username.value);
+break;
+}
+}
+});
+view1.add(imgView);
+scrollView.add(loginBtn,username,password);
+currentWindow.add(view1,scrollView);

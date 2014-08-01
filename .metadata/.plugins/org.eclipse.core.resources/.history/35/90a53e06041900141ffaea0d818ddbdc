@@ -1,0 +1,37 @@
+var tabGroup = Ti.UI.createTabGroup();
+
+var login = Ti.UI.createWindow({
+    title:"User Login",
+    url:"login.js"
+});
+ 
+var loginTab = Ti.UI.createTab({
+    title:"Login",
+    window:login
+});
+
+var contact = Ti.UI.createWindow({
+title: "Contact",
+url: "Support.js"
+});
+
+var contactTab = Ti.UI.createTab({
+title: "Contact",
+window: contact
+});
+ 
+var account = Ti.UI.createWindow({
+    title:'New Account',
+    url:'users.js'
+});
+ 
+var accountTab = Ti.UI.createTab({
+    title:'New Account',
+    window:account
+});
+
+
+tabGroup.addTab(loginTab);
+tabGroup.addTab(accountTab);
+tabGroup.addTab(contactTab);
+tabGroup.open();

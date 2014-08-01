@@ -1,0 +1,21 @@
+var win = Ti.UI.currentWindow;
+
+//Views
+var menu = Ti.UI.createTableView({
+    style:Titanium.UI.iPhone.TableViewStyle.GROUPED,
+    scrollable:false   
+});
+
+var ItemRow1 = Ti.UI.createTableViewRow({
+    hasChild: true
+});
+
+//Label 
+var Label1 = Ti.UI.createLabel({
+    left: 9,
+    text: "This is the first option"
+});
+
+ItemRow1.add(Label1); 
+menu.appendRow(ItemRow1); 
+win.add(menu);

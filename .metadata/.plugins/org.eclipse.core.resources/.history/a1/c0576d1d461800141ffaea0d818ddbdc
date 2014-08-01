@@ -1,0 +1,12 @@
+//Window
+var win = Titanium.UI.createWindow({ 
+    title:'My Drilldown',
+    backgroundColor:'#fff',});
+
+//Views
+var menu = Ti.UI.createTableView({
+    style:Titanium.UI.iPhone.TableViewStyle.GROUPED,
+    scrollable:false   
+});
+ 
+win.add(menu);

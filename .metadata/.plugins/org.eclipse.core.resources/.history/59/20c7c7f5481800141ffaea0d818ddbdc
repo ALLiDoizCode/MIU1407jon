@@ -1,0 +1,65 @@
+var win = Ti.UI.currentWindow;
+
+//Views
+var menu = Ti.UI.createTableView({
+    style:Titanium.UI.iPhone.TableViewStyle.GROUPED,
+    scrollable:false   
+});
+
+//first
+var ItemRow1 = Ti.UI.createTableViewRow({
+    hasChild: true
+});
+
+//Label 
+var Label1 = Ti.UI.createLabel({
+    left: 9,
+    text: "This is the first option"
+});
+ItemRow1.add(Label1);
+
+menu.appendRow(ItemRow1); 
+//end
+
+//second 
+var ItemRow2 = Ti.UI.createTableViewRow({
+    hasChild: true
+});
+ 
+var Label2 = Ti.UI.createLabel({
+    left: 9,
+    text: "This is the second option"
+});
+ItemRow2.add(Label2);
+ 
+menu.appendRow(ItemRow2);
+//end 
+ 
+//third 
+var ItemRow3 = Ti.UI.createTableViewRow({
+    hasChild: true
+});
+ 
+var Label3 = Ti.UI.createLabel({
+    left: 9,
+    text: "This is the third option"
+});
+ItemRow3.add(Label3);
+ 
+menu.appendRow(ItemRow3);
+//end 
+ 
+//fourth 
+var ItemRow3 = Ti.UI.createTableViewRow({
+    hasChild: true
+});
+ 
+var Label4 = Ti.UI.createLabel({
+    left: 9,
+    text: "This is the fourth option"
+});
+ItemRow4.add(Label4);
+ 
+menu.appendRow(ItemRow4);
+//end  
+win.add(menu);

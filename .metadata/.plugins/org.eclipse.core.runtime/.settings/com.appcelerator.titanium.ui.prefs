@@ -1,7 +1,9 @@
 =run
 Informational\ App\:launchMode=run
-Informational\ App\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch 64-bit)
-LAST_LAUNCH_TIMESTAMP=1406202319872
+Informational\ App\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
+LAST_LAUNCH_TIMESTAMP=1406755344061
+Utility\ app\:launchMode=run
+Utility\ app\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch 64-bit)
 eclipse.preferences.version=1
 preference.show.console.onError=true
 preference.studio.perspective.version=103

@@ -1,0 +1,38 @@
+//var currentWindow = Titanium.UI.currentWindow;
+//sub1
+var win1 = Ti.UI.createWindow({title:'Sub-Window 1'});
+var table1 = Ti.UI.createTableView({style:Titanium.UI.iPhone.TableViewStyle.GROUPED});
+var row1 = Ti.UI.createTableViewRow();
+var label1 = Ti.UI.createLabel({left:9, text: "This is a sub option!"});
+row1.add(label1);
+table1.appendRow(row1);
+win1.add(table1);
+ 
+//sub2
+var win2 = Ti.UI.createWindow({title:'Sub-Window 2'});
+var table2 = Ti.UI.createTableView({style:Titanium.UI.iPhone.TableViewStyle.GROUPED});
+var row2 = Ti.UI.createTableViewRow();
+var label2 = Ti.UI.createLabel({left:9, text: "This is a sub option!"});
+row2.add(label2);
+table2.appendRow(row2);
+win2.add(table2);
+ 
+//sub3
+var win3 = Ti.UI.createWindow({title:'Sub-Window 3'});
+var table3 = Ti.UI.createTableView({style:Titanium.UI.iPhone.TableViewStyle.GROUPED});
+var row3 = Ti.UI.createTableViewRow();
+var label3 = Ti.UI.createLabel({left:9, text: "This is a sub option!"});
+row3.add(label3);
+table3.appendRow(row3);
+win3.add(table3);
+ 
+//sub4
+var win4 = Ti.UI.createWindow({title:'Sub-Window 4'});
+var table4 = Ti.UI.createTableView({style:Titanium.UI.iPhone.TableViewStyle.GROUPED});
+var row4 = Ti.UI.createTableViewRow();
+var label4 = Ti.UI.createLabel({left:9, text: "This is a sub option!"});
+row4.add(label4);
+table4.appendRow(row4);
+win4.add(table4);
+
+//currentWindow.add(win1,win2,win3,win4);
